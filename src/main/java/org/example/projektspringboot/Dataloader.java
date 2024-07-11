@@ -71,7 +71,6 @@ public class Dataloader  implements ApplicationRunner {
         auto.setArt("Auto");
         versicherungsartRepository.save(auto);
 
-
         Police police1 = new Police();
         police1.setPolicenummer("P12345");
         police1.setKunde(kunde1);
