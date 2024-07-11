@@ -15,6 +15,7 @@ public class KundeController {
     @Autowired
     private KundeRepository kundeRepository;
 
+
     @GetMapping
     public List<Kunde> getAllKunden() {
         return kundeRepository.findAll();
@@ -49,6 +50,7 @@ public class KundeController {
         } else {
             return ResponseEntity.notFound().build();
         }
+
     }
 
     @DeleteMapping("/{id}")
