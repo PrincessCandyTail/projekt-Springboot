@@ -1,5 +1,6 @@
 package org.example.projektspringboot.Controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.example.projektspringboot.Domain.Zahlung;
 import org.example.projektspringboot.Repository.ZahlungRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/zahlungen")
+@Tag(name = "ZahlungController", description = "Endpoints for managing 'ZahlungController' entities")
+
 public class ZahlungController {
 
 

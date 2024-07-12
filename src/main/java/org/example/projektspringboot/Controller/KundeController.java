@@ -1,5 +1,6 @@
 package org.example.projektspringboot.Controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.example.projektspringboot.Domain.Kunde;
 import org.example.projektspringboot.Repository.KundeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/kunden")
+@Tag(name = "KundeController", description = "Endpoints for managing 'KundeController' entities")
+
 public class KundeController {
     @Autowired
     private KundeRepository kundeRepository;

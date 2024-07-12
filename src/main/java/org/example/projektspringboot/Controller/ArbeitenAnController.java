@@ -1,6 +1,9 @@
 package org.example.projektspringboot.Controller;
 
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.example.projektspringboot.Domain.ArbeitenAn;
 import org.example.projektspringboot.Repository.ArbeitenAnRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,17 +14,22 @@ import java.util.List;
 import java.util.Optional;
 @RestController
 @RequestMapping("/api/arbeiten_an")
+@Tag(name = "ArbeitenAn", description = "Endpoints for managing 'ArbeitenAn' entities")
+
 public class ArbeitenAnController {
     @Autowired
     private ArbeitenAnRepository arbeitenAnRepository;
 
     @GetMapping
+    @Operation(summary = "Get all ArbeitenAn entities", description = "Returns a list of all ArbeitenAn entities")
     public List<ArbeitenAn> getAllArbeitenAn() {
         return arbeitenAnRepository.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ArbeitenAn> getArbeitenAnById(@PathVariable Long id) {
+    public ResponseEntity<ArbeitenAn> getArbeitenAnById(
+        @Parameter(description = "ID of the ArbeitenAn to be retrieved", example = "1") @PathVariable Long id) {
+
         Optional<ArbeitenAn> arbeitenAn = arbeitenAnRepository.findById(id);
         if (arbeitenAn.isPresent()) {
             return ResponseEntity.ok(arbeitenAn.get());

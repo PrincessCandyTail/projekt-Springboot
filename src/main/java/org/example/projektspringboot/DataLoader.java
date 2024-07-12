@@ -1,6 +1,5 @@
 package org.example.projektspringboot;
 
-
 import org.example.projektspringboot.Domain.*;
 import org.example.projektspringboot.Repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,8 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Dataloader  implements ApplicationRunner {
+public class DataLoader implements ApplicationRunner {
+
     @Autowired
     private KundeRepository kundeRepository;
 
@@ -59,6 +59,7 @@ public class Dataloader  implements ApplicationRunner {
         kunde2.setArbeiter(arbeiter2);
         kundeRepository.save(kunde2);
 
+
         Versicherungsart unfall = new Versicherungsart();
         unfall.setArt("Unfall");
         versicherungsartRepository.save(unfall);
@@ -85,8 +86,6 @@ public class Dataloader  implements ApplicationRunner {
         police2.setArbeiter(arbeiter2);
         policeRepository.save(police2);
 
-
-
         Zahlung zahlung1 = new Zahlung();
         zahlung1.setMonatsbetrag(100.00);
         zahlung1.setPolice(police1);
@@ -96,7 +95,6 @@ public class Dataloader  implements ApplicationRunner {
         zahlung2.setMonatsbetrag(150.00);
         zahlung2.setPolice(police2);
         zahlungRepository.save(zahlung2);
-
 
         ArbeitenAn arbeitenAn1 = new ArbeitenAn();
         arbeitenAn1.setPolice(police1);
@@ -109,4 +107,3 @@ public class Dataloader  implements ApplicationRunner {
         arbeitenAnRepository.save(arbeitenAn2);
     }
 }
-

@@ -1,5 +1,7 @@
 package org.example.projektspringboot.Controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.example.projektspringboot.Domain.Versicherungsart;
 import org.example.projektspringboot.Repository.VersicherungsartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,9 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/versicherungsarten")
+@Tag(name = "VersicherungsartController", description = "Endpoints for managing 'VersicherungsartController' entities")
+
+
 public class VersicherungsartController {
 
     @Autowired
@@ -22,6 +27,9 @@ public class VersicherungsartController {
     }
 
     @GetMapping("/{id}")
+    @Operation(summary = "Get a Versicherungsart by ID", description = "Fetch the details of a specific contract")
+
+
     public ResponseEntity<Versicherungsart> getVersicherungsartById(@PathVariable Long id) {
         Optional<Versicherungsart> versicherungsart = versicherungsartRepository.findById(id);
         if (versicherungsart.isPresent()) {

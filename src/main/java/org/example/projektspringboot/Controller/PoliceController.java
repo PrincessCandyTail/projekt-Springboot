@@ -1,5 +1,6 @@
 package org.example.projektspringboot.Controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.example.projektspringboot.Domain.Police;
 import org.example.projektspringboot.Repository.PoliceRepositroy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/policen")
+@Tag(name = "PoliceController", description = "Endpoints for managing 'PoliceController' entities")
+
 public class PoliceController {
 
     @Autowired
